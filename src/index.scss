@@ -1,0 +1,393 @@
+// 3rd-party Plugins
+@import '~highlight.js/styles/googlecode.css';
+@import '~perfect-scrollbar/css/perfect-scrollbar.css';
+
+// Theme Styles
+@import './_metronic/_assets/sass/style.react.scss';
+
+// Default Layout themes
+// @import "./_metronic/_assets/sass/themes/layout/header/base/light.scss";
+// @import "./_metronic/_assets/sass/themes/layout/header/menu/light.scss";
+// @import "./_metronic/_assets/sass/themes/layout/brand/dark.scss";
+// @import "./_metronic/_assets/sass/themes/layout/aside/dark.scss";
+
+// Header themes
+// Light
+//@import "./_metronic/_assets/sass/themes/layout/header/base/light.scss";
+// Dark
+// @import "./_metronic/_assets/sass/themes/layout/header/base/dark.scss";
+
+// Header Menu themes
+// Light
+//@import "./_metronic/_assets/sass/themes/layout/header/menu/light.scss";
+// Dark
+// @import "./_metronic/_assets/sass/themes/layout/header/menu/dark.scss";
+
+// Brand themes
+// .brand-dark {
+//   @import "./_metronic/_assets/sass/themes/layout/brand/dark.scss";
+// }
+// // Light
+// .brand-light {
+//   @import "./_metronic/_assets/sass/themes/layout/brand/light.scss";
+// }
+
+// Aside themes
+// Dark
+//@import "./_metronic/_assets/sass/themes/layout/aside/dark.scss";
+// Light
+// @import "./_metronic/_assets/sass/themes/layout/aside/light.scss";
+
+// .example-highlight {
+//   padding: 0rem 1.5rem 1.75rem !important;
+// }
+
+.example-highlight > pre {
+    background: none transparent !important;
+    margin: 0 !important;
+    padding-top: 0.5rem;
+    code {
+        overflow-y: auto;
+        display: block;
+
+        span {
+            background: none transparent !important;
+        }
+    }
+}
+
+.json > pre {
+    background: none #fff !important;
+}
+
+.example-code > .json {
+    background: none #fff !important;
+}
+
+.symbol.symbol-45 > svg {
+    width: 100%;
+    max-width: 45px;
+    height: 45px;
+}
+
+.react-bootstrap-table {
+    overflow-x: auto;
+}
+
+.react-bootstrap-table {
+    th {
+        outline: none;
+
+        &.sortable {
+            .svg-icon-sort {
+                opacity: 0;
+            }
+
+            &:hover {
+                cursor: pointer;
+
+                .svg-icon-sort {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    .table.table-head-custom thead tr {
+        .sortable-active {
+            color: $primary !important;
+        }
+    }
+}
+
+// .nav-link:focus {
+//     outline: none;
+// }
+
+//property form begins
+.propTypebtn {
+    background-color: transparent !important;
+}
+
+.propTypebtn button {
+    width: auto !important;
+    margin-right: 1.2rem !important;
+    background-color: #fff !important;
+    padding: 1rem 4rem !important;
+    height: 90px !important;
+    text-transform: capitalize !important;
+    font-weight: 500 !important;
+    font-size: 20px;
+    line-height: 20px;
+    color: #5c6f73;
+    border: 0 !important;
+    -webkit-box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+    -o-box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+.propTypebtn .MuiToggleButton-root.Mui-selected,
+.propSubTypebtn .MuiToggleButton-root.Mui-selected {
+    color: #fff !important;
+    background-color: #0180b6 !important;
+}
+
+.propSubTypebtn button {
+    width: auto !important;
+    height: 30px !important;
+    border-radius: 5rem !important;
+    padding: 5px 1rem !important;
+    margin: 1rem;
+    font-size: 16px !important;
+    color: #5c6f73;
+    text-transform: capitalize !important;
+    border: 0 !important;
+    -webkit-box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+    -o-box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+.custom-ml-auto {
+    width: 250px !important;
+    padding: 1rem 2rem !important;
+    margin-left: auto !important;
+}
+
+.custom-upload-btn {
+    // width: 420px !important;
+    background-color: #0180b6 !important;
+    border: 1px solid #0180b6 !important;
+    // height: 200px !important;
+    box-shadow: none !important;
+    border-radius: 99rem !important;
+    text-transform: capitalize !important;
+    font-size: 16px !important;
+    color: #fff !important;
+    font-family: proxima-nova, sans-serif !important;
+    font-weight: 600 !important;
+    padding-bottom: 0 !important;
+    cursor: pointer !important;
+    -webkit-transition-property: color, border, background, -webkit-box-shadow !important;
+    transition-property: color, border, background, -webkit-box-shadow !important;
+    transition-property: color, border, box-shadow, background !important;
+    transition-property: color, border, box-shadow, background,
+        -webkit-box-shadow !important;
+    -webkit-transition-duration: 0.2s !important;
+    transition-duration: 0.2s !important;
+    -webkit-transition-timing-function: ease !important;
+    transition-timing-function: ease !important;
+}
+.custom-upload-btn:hover {
+    background-color: #eef0f8 !important;
+    color: #0180b6 !important;
+}
+
+// .custom-upload-icon {
+//     font-size: 50px !important;
+//     color: grey !important;
+// }
+
+.MuiStepLabel-label.MuiStepLabel-alternativeLabel {
+    font-size: medium;
+    font-weight: 600;
+}
+
+.color-gray {
+    color: #5c6f73;
+    font-size: 18px;
+}
+//property form ends
+
+body,
+html {
+    font-family: proxima-nova, sans-serif !important;
+}
+
+.property-icon svg {
+    font-size: 26px;
+    color: #8fa3a7;
+}
+
+.back-icon svg {
+    font-size: 20px;
+    color: #0180b6;
+    margin-top: -2px;
+}
+
+.MuiToggleButton-root.Mui-selected .property-icon svg {
+    color: #fff !important;
+}
+
+.MuiFormHelperText-root.Mui-error {
+    color: #fff !important;
+    background: #d3583c;
+    padding: 0.5rem;
+    border-radius: 0.4rem;
+    margin-top: 1rem;
+    // padding-left: 0.5rem;
+    font-size: 14px !important;
+}
+
+.subtype-label p {
+    font-size: 18px;
+    font-weight: 600;
+    color: #364143;
+    line-height: 18px;
+}
+
+.subtype-label svg {
+    margin-top: -5px;
+    font-size: 30px !important;
+}
+
+.margin-top-3 {
+    margin-top: 3rem;
+}
+
+.margin-t-2 {
+    margin-top: 2rem;
+}
+.margib-b-2 {
+    margin-bottom: 2rem;
+}
+
+.prop-loc-text {
+    color: #1c5663;
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.MuiFilledInput-input {
+    background: #fff !important;
+    border-bottom: 0 !important;
+    border-left: 3px solid #0190b4 !important;
+    box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.2) !important;
+    font-size: 16px !important;
+    color: #5c6f73 !important;
+    font-family: proxima-nova, sans-serif !important;
+}
+
+.MuiFilledInput-underline:after,
+.MuiFilledInput-underline:before {
+    border-bottom: none !important;
+}
+
+.input-text-big input[type='text'] {
+    font-size: 16px !important;
+    font-family: proxima-nova, sans-serif !important;
+}
+
+.next-btn {
+    width: auto !important;
+    color: #fff !important;
+    padding: 0.2rem 0.4rem 0.1rem 1.5rem !important;
+    font-size: 20px !important;
+    font-weight: 500 !important;
+    text-transform: capitalize !important;
+    font-family: proxima-nova, sans-serif !important;
+    border-radius: 0.9rem !important;
+    box-shadow: none !important;
+    float: right;
+}
+
+.back-btn {
+    width: auto !important;
+    color: #fff !important;
+    padding: 0.2rem 0.4rem 0.1rem 1.5rem !important;
+    font-size: 20px !important;
+    font-weight: 500 !important;
+    text-transform: capitalize !important;
+    font-family: proxima-nova, sans-serif !important;
+    border-radius: 0.9rem !important;
+    box-shadow: none !important;
+    float: right;
+}
+
+.next-btn-text {
+    text-align: left !important;
+    margin-bottom: -0.8rem !important;
+}
+
+.back-btn-text {
+    text-align: left !important;
+    margin-bottom: -1.8rem !important;
+    font-family: proxima-nova, sans-serif !important;
+}
+
+.btn-next-icon svg {
+    margin-top: 1.2rem !important;
+    font-size: 1.8rem !important;
+}
+
+.text-small {
+    width: auto !important;
+    font-size: 16px !important;
+    font-family: proxima-nova, sans-serif !important;
+    min-width: 12rem;
+    margin-top: -0.7rem !important;
+    font-weight: 500 !important;
+}
+
+.b-text-small {
+    font-size: 16px !important;
+    font-family: proxima-nova, sans-serif !important;
+    margin-top: -0.7rem !important;
+    font-weight: 500 !important;
+}
+.p-r-2 {
+    padding-right: 2rem !important;
+}
+
+.text-right {
+    text-align: right !important;
+}
+
+.upload-area {
+    width: 50%;
+    background: #eef0f8;
+    border: 0.2rem dashed #cbd4d6;
+    height: 16rem;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    justify-content: center;
+}
+
+.upload-area * {
+    cursor: pointer;
+}
+
+#outlined-multiple-static {
+    font-family: proxima-nova, sans-serif !important;
+    font-size: 18px !important;
+    line-height: 26px !important;
+    color: #5c6f73 !important;
+}
+
+.MuiExpansionPanel-root:before {
+    background-color: transparent !important;
+}
+
+.MuiPaper-elevation1 {
+    box-shadow: none !important;
+}
+
+.custom-expansion-panel {
+    padding: 0 1.7rem 0.8rem 1.7rem !important;
+    box-shadow: 0 0 50px 0 rgba(82, 63, 105, 0.15) !important;
+}
+
+.custom-expansion-panel p {
+    margin-bottom: 0 !important;
+    font-weight: 600;
+    color: #758d91;
+}
+
+.custom-checkbox .MuiTypography-body1 {
+    font-family: proxima-nova, sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 600;
+    color: #758d91;
+}

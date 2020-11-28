@@ -61,20 +61,18 @@ export function CustomersFetchDialog({ show, onHide }) {
               <div className="timeline-label font-weight-bolder text-dark-75 font-size-lg text-right pr-3" />
               <div className="timeline-badge">
                 <i
-                  className={`fa fa-genderless text-${
-                    CustomerStatusCssClasses[customer.status]
-                  } icon-xxl`}
+                  className={`fa fa-genderless text-${CustomerStatusCssClasses[customer.status]
+                    } icon-xxl`}
                 />
               </div>
               <div className="timeline-content text-dark-50 mr-5">
                 <span
-                    className={`label label-lg label-light-${
-                      CustomerStatusCssClasses[customer.status]
+                  className={`label label-lg label-light-${CustomerStatusCssClasses[customer.status]
                     } label-inline`}
-                  >
-                    ID: {customer.id}
+                >
+                  ID: {customer.id}
                 </span>
-                <span className="ml-3">{customer.lastName}, {customer.firstName}</span>                
+                <span className="ml-3">{customer.lastName}, {customer.firstName}</span>
               </div>
             </div>
           ))}

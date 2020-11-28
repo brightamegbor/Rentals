@@ -20,7 +20,13 @@ const {
         rent,
         photos,
         description,
-        additionals,
+        buildingFeatures,
+        unitFeatures,
+        nearbyFeat,
+        leadEmail,
+        leadPhone,
+        status,
+        plan
     }
 } = propertyAddFormModel;
 
@@ -43,5 +49,11 @@ export default {
     [rent.name]: '',
     [photos.name]: '',
     [description.name]: '',
-    [additionals.name]: '',
+    [buildingFeatures.name]: '',
+    [unitFeatures.name]: '',
+    [nearbyFeat.name]: '',
+    [leadEmail.name]: '',
+    [leadPhone.name]: '',
+    [status.name]: 'pending',
+    [plan.name]: '',
 };

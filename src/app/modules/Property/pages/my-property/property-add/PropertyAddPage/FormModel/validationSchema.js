@@ -14,11 +14,13 @@ const {
         bathroomType,
         rent,
         // photos,
-        description
+        description,
+        leadPhone
     }
 } = propertyAddFormModel;
 
 const rentRegEx = /^(?:[1-9][0-9]{1}(?:[0-9]{1})?(?:[0-9]{1})?)$/;
+const phoneRegEx = /^(?:0[1-9]{0,1}[0-9]{8}?)$/;
 
 export default [
 
@@ -55,14 +57,18 @@ export default [
         //     .required("Please choose a type"),
     }),
     Yup.object().shape({
-        [rent.name]: Yup.string()
-            .required("Rent is required")
-            .matches(rentRegEx, 'Rent value is invalid'),
+        // [rent.name]: Yup.string()
+        //     .required("Rent is required")
+        //     .matches(rentRegEx, 'Rent value is invalid'),
         // [photos.name]: Yup.string()
         //     .required("Please upload a photo"),
         [description.name]: Yup.string()
             .nullable()
-            .min(20, 'Description too short')
-            .required("Description is required"),
+            .min(20, 'Description too short'),
+        // .required("Description is required"),
+        // [leadPhone.name]: Yup.string()
+        //     .required("Phone is required")
+        //     .min(10, 'Enter 10 digits number')
+        //     .matches(phoneRegEx, 'Phone number is invalid'),
     })
 ];

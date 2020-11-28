@@ -4,6 +4,7 @@ import { Formik, Form } from 'formik';
 import PropertyTypeForm from './Forms/PropertyTypeForm';
 import UploadPhotos from './Forms/UploadPhotos';
 import PropertyDetailsForm from './Forms/PropertyDetailsForm';
+// import PlanAddons from './Forms/PlanAddons';
 
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import Stepper from '@material-ui/core/Stepper';
@@ -24,6 +25,11 @@ import propertyAddFormModel from './FormModel/propertyAddFormModel';
 import formInitialValues from './FormModel/formInitialValues';
 import { CircularProgress } from '@material-ui/core';
 import Divider from '@material-ui/core/Divider';
+
+import { useDispatch } from 'react-redux';
+import * as crudActions from '../../../../_redux/property/propertyActions';
+import { useHistory } from 'react-router-dom';
+
 const useQontoStepIconStyles = makeStyles({
     root: {
         color: '#eaeaf0',
@@ -199,6 +205,9 @@ export default function PropertyAddPage() {
     const steps = getSteps();
     const isLastStep = activeStep === steps.length - 1;
 
+    const dispatch = useDispatch();
+
+    const history = useHistory();
     // const handleNext = () => {
     //     setActiveStep((prevActiveStep) => prevActiveStep + 1);
     // };
@@ -218,6 +227,10 @@ export default function PropertyAddPage() {
     async function _submitForm(values, actions) {
         await _sleep(1000);
         alert(JSON.stringify(values, null, 2));
+
+        dispatch(crudActions.createProperty(values)).then(() =>
+            backToPropertyPage()
+        );
         actions.setSubmitting(false);
 
         setActiveStep(activeStep + 1);
@@ -232,6 +245,10 @@ export default function PropertyAddPage() {
             actions.setSubmitting(false);
         }
     }
+
+    const backToPropertyPage = () => {
+        history.push(`/property/my`);
+    };
 
     return (
         <div>
@@ -301,7 +318,14 @@ export default function PropertyAddPage() {
                                                 className='next-btn'
                                             >
                                                 {isLastStep ? (
-                                                    'Save Property'
+                                                    <div className='row next-btn-text'>
+                                                        <div className='col-9'>
+                                                            Last Step
+                                                            <p className='text-small p-r-2'>
+                                                                Plan & Addons
+                                                            </p>
+                                                        </div>
+                                                    </div>
                                                 ) : (
                                                     <div className='row next-btn-text'>
                                                         <div className='col-9'>

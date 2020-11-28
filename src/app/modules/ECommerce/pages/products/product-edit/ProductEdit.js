@@ -76,7 +76,7 @@ export function ProductEdit({
     }
   };
 
-  const btnRef = useRef();  
+  const btnRef = useRef();
   const saveProductClick = () => {
     if (btnRef && btnRef.current) {
       btnRef.current.click();
@@ -153,6 +153,7 @@ export function ProductEdit({
             </>
           )}
         </ul>
+
         <div className="mt-5">
           {tab === "basic" && (
             <ProductEditForm
@@ -173,6 +174,7 @@ export function ProductEdit({
             </SpecificationsUIProvider>
           )}
         </div>
+
       </CardBody>
     </Card>
   );

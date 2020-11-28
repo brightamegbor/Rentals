@@ -9,7 +9,8 @@ import ApartmentIcon from '@material-ui/icons/Apartment';
 import MeetingRoomOutlined from '@material-ui/icons/MeetingRoomOutlined';
 import ExploreOutlined from '@material-ui/icons/ExploreOutlined';
 import ImageIcon from '@material-ui/icons/Image';
-import { Input } from '@material-ui/core';
+import MailOutlined from '@material-ui/icons/MailOutlined';
+import { Input, TextField } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
@@ -284,6 +285,14 @@ const propertyItems = {
             label: 'Air Conditioning'
         },
         {
+            value: 'alarm-system',
+            label: 'Alarm System'
+        },
+        {
+            value: 'backyard',
+            label: 'Backyard'
+        },
+        {
             value: 'balcony',
             label: 'Balcony'
         },
@@ -296,151 +305,293 @@ const propertyItems = {
             label: 'Ensuite Laundry'
         },
         {
-            value: 'buzzer-entry',
-            label: 'Buzzer Entry'
+            value: 'flooring-ceramic',
+            label: 'Flooring - Ceramic'
         },
         {
-            value: 'central-air-conditioning',
-            label: 'Central Air Conditioning'
+            value: 'flooring-laminate-hardwood',
+            label: 'Flooring - Laminate Hardwood'
         },
         {
-            value: 'electric-vehicl-charger',
-            label: 'Electric Vehicle Charger'
+            value: 'flooring-wood',
+            label: 'Flooring - Wood'
         },
         {
-            value: 'elevator',
-            label: 'Elevator'
+            value: 'garburator',
+            label: 'Garburator'
         },
         {
-            value: 'exercise-room',
-            label: 'Exercise Room'
+            value: 'granite-countertops',
+            label: 'Granite Countertops'
         },
         {
-            value: 'fitnes-area',
-            label: 'Fitness Area'
+            value: 'newly-renovated',
+            label: 'Newly Renovated'
         },
         {
-            value: 'garage',
-            label: 'Garage'
+            value: 'island',
+            label: 'Island'
         },
         {
-            value: 'guest-suite',
-            label: 'Guest Suite'
+            value: 'pool-private',
+            label: 'Pool - Private'
         },
         {
-            value: 'intercom',
-            label: 'Intercom'
+            value: 'radiant-heat',
+            label: 'Radiant Heat'
         },
         {
-            value: 'jacuzzi',
-            label: 'Jacuzzi'
+            value: 'storage',
+            label: 'Storage'
         },
         {
-            value: 'laundry-facilities',
-            label: 'Laundry Facilities'
+            value: 'washer',
+            label: 'Washer'
+        },
+
+        {
+            value: 'bbq-grill',
+            label: 'Bbq Grill'
         },
         {
-            value: 'movie-room',
-            label: 'Movie Room'
+            value: 'dishwasher',
+            label: 'Dishwasher'
         },
         {
-            value: 'on-site-management',
-            label: 'On-Site Management'
+            value: 'fireplace',
+            label: 'Fireplace'
         },
         {
-            value: 'on-Site-staff',
-            label: 'On-Site Staff'
+            value: 'flooring-hardwood',
+            label: 'Flooring - Hardwood'
         },
         {
-            value: 'parking-underground',
-            label: 'Parking - Underground'
+            value: 'flooring-tile',
+            label: 'Flooring - Tile'
         },
         {
-            value: 'parking-visitor',
-            label: 'Parking - Visitor'
+            value: 'freshly-painted',
+            label: 'Freshly Painted'
         },
         {
-            value: 'party-room',
-            label: 'Party Room'
+            value: 'garden',
+            label: 'Garden'
         },
         {
-            value: 'pet-friendly',
-            label: 'Pet Friendly'
+            value: 'hot-tub',
+            label: 'Hot Tub'
         },
         {
-            value: 'pool-heated',
-            label: 'Pool - Heated'
+            value: 'microwave',
+            label: 'Microwave'
         },
         {
-            value: 'pool-rooftop',
-            label: 'Pool - Rooftop'
+            value: 'parking',
+            label: 'Parking'
         },
         {
-            value: 'professionally-managed',
-            label: 'Professionally Managed'
+            value: 'private-entry',
+            label: 'Private Entry'
         },
         {
-            value: 'recreation-room',
-            label: 'Recreation Room'
+            value: 'security-cameras',
+            label: 'Security Cameras'
         },
         {
-            value: 'recycling',
-            label: 'Recycling'
+            value: 'terrace',
+            label: 'Terrace'
         },
         {
-            value: 'resident-managers',
-            label: 'Resident Managers'
+            value: 'wheelchair-access',
+            label: 'Wheelchair Access'
+        },
+
+        {
+            value: 'blinds',
+            label: 'Blinds'
         },
         {
-            value: 'rooftop-deck',
-            label: 'Rooftop Deck'
+            value: 'dryer',
+            label: 'Dryer'
         },
         {
-            value: 'rooftop-garden',
-            label: 'Rooftop Garden'
+            value: 'flooring-carpeted',
+            label: 'Flooring - Carpeted'
         },
         {
-            value: 'rooftop-lounge',
-            label: 'Rooftop Lounge'
+            value: 'flooring-laminate',
+            label: 'Flooring - Laminate'
         },
         {
-            value: 'sauna',
-            label: 'Sauna'
+            value: 'flooring-vinyl',
+            label: 'Flooring - Vinyl'
         },
         {
-            value: 'secured-access',
-            label: 'Secured Access'
+            value: 'furnished',
+            label: 'Furnished'
         },
         {
-            value: 'security-on-site',
-            label: 'Security On-Site'
+            value: 'gas-heating',
+            label: 'Gas Heating'
         },
         {
-            value: 'storage-lockers',
-            label: 'Storage Lockers'
+            value: 'individual thermostats',
+            label: 'Individual Thermostats'
         },
         {
-            value: 'swimming-pool',
-            label: 'Swimming Pool'
+            value: 'new-appliances',
+            label: 'New Appliances'
         },
         {
-            value: 'tennis-court',
-            label: 'Tennis Court'
+            value: 'patio',
+            label: 'Patio'
         },
         {
-            value: 'theatre-room',
-            label: 'Theatre Room'
+            value: 'private yard',
+            label: 'Private Yard'
         },
         {
-            value: 'video-surveillance',
-            label: 'Video Surveillance'
+            value: 'shared yard',
+            label: 'Shared Yard'
+        },
+        {
+            value: 'walk-in closet',
+            label: 'Walk-In Closet'
+        },
+        {
+            value: 'window coverings',
+            label: 'Window Coverings'
+        }
+    ],
+
+    nearbyFeatures: [
+        {
+            value: '24h-emergency',
+            label: '24h Emergency'
+        },
+        {
+            value: 'atm',
+            label: 'Atm'
+        },
+        {
+            value: 'bank',
+            label: 'Bank'
+        },
+        {
+            value: 'bars',
+            label: 'Bars'
+        },
+        {
+            value: 'bike trails',
+            label: 'Bike Trails'
+        },
+        {
+            value: 'bus stop',
+            label: 'Bus Stop'
+        },
+        {
+            value: 'cafe',
+            label: 'Cafe'
+        },
+        {
+            value: 'convenience store',
+            label: 'Convenience Store'
+        },
+        {
+            value: 'daycare',
+            label: 'Daycare'
+        },
+        {
+            value: 'dog park',
+            label: 'Dog Park'
+        },
+        {
+            value: 'gas station',
+            label: 'Gas Station'
+        },
+        {
+            value: 'grocery store',
+            label: 'Grocery Store'
+        },
+        {
+            value: 'gym',
+            label: 'Gym'
+        },
+        {
+            value: 'highway',
+            label: 'Highway'
+        },
+        {
+            value: 'hospital',
+            label: 'Hospital'
+        },
+        {
+            value: 'movie theater',
+            label: 'Movie Theater'
+        },
+        {
+            value: 'parks',
+            label: 'Parks'
+        },
+        {
+            value: 'playground',
+            label: 'Playground'
+        },
+        {
+            value: 'pool',
+            label: 'Pool'
+        },
+        {
+            value: 'public library',
+            label: 'Public Library'
+        },
+        {
+            value: 'public transit',
+            label: 'Public Transit'
+        },
+        {
+            value: 'recreation',
+            label: 'Recreation'
+        },
+        {
+            value: 'restaurants',
+            label: 'Restaurants'
+        },
+        {
+            value: 'running path',
+            label: 'Running Path'
+        },
+        {
+            value: 'school',
+            label: 'School'
+        },
+        {
+            value: 'schools',
+            label: 'Schools'
+        },
+        {
+            value: 'shopping',
+            label: 'Shopping'
+        },
+        {
+            value: 'shopping centre',
+            label: 'Shopping Centre'
         }
     ]
 };
 
 function UploadPhotos(props) {
     const {
-        formField: { rent, photos, description, additionals }
+        formField: {
+            rent,
+            photos,
+            description,
+            buildingFeatures,
+            unitFeatures,
+            nearbyFeat,
+            leadEmail,
+            leadPhone
+        }
     } = props;
 
     const [expanded, setExpanded] = React.useState(false);
@@ -566,17 +717,11 @@ function UploadPhotos(props) {
                         <ExpansionPanelDetails>
                             <CheckTextField
                                 aria-label='text petFriendly'
-                                name={additionals.name}
+                                name={buildingFeatures.name}
                                 data={propertyItems.buildingFeatures}
                                 exclusive={false}
-                                className='propSubTypebtn'
+                                className='propSubTypebtn additional-feat'
                             />
-
-                            {/* <div className='col-4'>
-                                    
-                                </div>
-
-                                <div className='col-4'></div> */}
                         </ExpansionPanelDetails>
                     </ExpansionPanel>
 
@@ -596,7 +741,15 @@ function UploadPhotos(props) {
                                 Unit Features
                             </p>
                         </ExpansionPanelSummary>
-                        <ExpansionPanelDetails></ExpansionPanelDetails>
+                        <ExpansionPanelDetails>
+                            <CheckTextField
+                                aria-label='text unitFeatures'
+                                name={unitFeatures.name}
+                                data={propertyItems.unitFeatures}
+                                exclusive={false}
+                                className='propSubTypebtn additional-feat'
+                            />
+                        </ExpansionPanelDetails>
                     </ExpansionPanel>
 
                     <ExpansionPanel
@@ -615,8 +768,52 @@ function UploadPhotos(props) {
                                 Nearby
                             </p>
                         </ExpansionPanelSummary>
-                        <ExpansionPanelDetails></ExpansionPanelDetails>
+                        <ExpansionPanelDetails>
+                            <CheckTextField
+                                aria-label='text nearbyFeat'
+                                name={nearbyFeat.name}
+                                data={propertyItems.nearbyFeatures}
+                                exclusive={false}
+                                className='propSubTypebtn additional-feat'
+                            />
+                        </ExpansionPanelDetails>
                     </ExpansionPanel>
+                </div>
+            </Grid>
+
+            <Grid className='pt-4 margin-top-3'>
+                <div className='row mt-3'>
+                    <div className='subtype-label col-sm-12 col-md-12 col-lg-4'>
+                        <p className='mt-4'>
+                            <span className='pr-4 property-icon'>
+                                <MailOutlined />
+                            </span>
+                            Lead Contact
+                        </p>
+                    </div>
+
+                    <div className='col-sm-12 col-md-6 col-lg-4 input-text-big pt-4'>
+                        <InputField
+                            fullWidth
+                            label={leadEmail.label}
+                            name={leadEmail.name}
+                            id='input-with-icon-textfield'
+                            variant='filled'
+                        />
+                    </div>
+
+                    <div className='col-sm-12 col-md-6 col-lg-4 input-text-big pt-4'>
+                        <InputField
+                            fullWidth
+                            label={leadPhone.label}
+                            name={leadPhone.name}
+                            id='input-with-icon-textfield'
+                            inputProps={{
+                                maxlength: 10
+                            }}
+                            variant='filled'
+                        />
+                    </div>
                 </div>
             </Grid>
         </React.Fragment>

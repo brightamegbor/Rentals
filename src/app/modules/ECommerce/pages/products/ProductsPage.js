@@ -64,6 +64,7 @@ export function ProductsPage({ history }) {
           />
         )}
       </Route>
+
       <Route path="/e-commerce/products/updateStatus">
         {({ history, match }) => (
           <ProductsUpdateStatusDialog

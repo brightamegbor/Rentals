@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialPropertysState = {
+const initialPropertiesState = {
   listLoading: false,
   actionsLoading: false,
   totalCount: 0,
@@ -13,9 +13,9 @@ export const callTypes = {
   action: "action"
 };
 
-export const propertysSlice = createSlice({
-  name: "propertys",
-  initialState: initialPropertysState,
+export const propertiesSlice = createSlice({
+  name: "properties",
+  initialState: initialPropertiesState,
   reducers: {
     catchError: (state, action) => {
       state.error = `${action.type}: ${action.payload.error}`;
@@ -33,45 +33,45 @@ export const propertysSlice = createSlice({
         state.actionsLoading = true;
       }
     },
-    // getProductById
+    // getPropertyById
     propertyFetched: (state, action) => {
       state.actionsLoading = false;
       state.propertyAdd = action.payload.propertyAdd;
       state.error = null;
     },
-    // findProducts
-    propertysFetched: (state, action) => {
+    // findProperties
+    propertiesFetched: (state, action) => {
       const { totalCount, entities } = action.payload;
       state.listLoading = false;
       state.error = null;
       state.entities = entities;
       state.totalCount = totalCount;
     },
-    // createProduct
+    // createProperty
     propertyCreated: (state, action) => {
       state.actionsLoading = false;
       state.error = null;
-      state.entities.push(action.payload.property);
+      state.entities.push(action.payload.propertty);
     },
-    // updateProduct
+    // updateProperty
     propertyUpdated: (state, action) => {
       state.error = null;
       state.actionsLoading = false;
       state.entities = state.entities.map(entity => {
-        if (entity.id === action.payload.property.id) {
-          return action.payload.property;
+        if (entity.id === action.payload.propertty.id) {
+          return action.payload.propertty;
         }
         return entity;
       });
     },
-    // deleteProduct
+    // deleteProperty
     propertyDeleted: (state, action) => {
       state.error = null;
       state.actionsLoading = false;
       state.entities = state.entities.filter(el => el.id !== action.payload.id);
     },
     // deleteProducts
-    propertysDeleted: (state, action) => {
+    propertiesDeleted: (state, action) => {
       state.error = null;
       state.actionsLoading = false;
       state.entities = state.entities.filter(
@@ -79,7 +79,7 @@ export const propertysSlice = createSlice({
       );
     },
     // productsUpdateState
-    propertysStatusUpdated: (state, action) => {
+    propertiesStatusUpdated: (state, action) => {
       state.actionsLoading = false;
       state.error = null;
       const { ids, status } = action.payload;

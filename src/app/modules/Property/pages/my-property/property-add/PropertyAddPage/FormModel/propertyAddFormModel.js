@@ -74,9 +74,33 @@ export default {
             name: 'description',
             requiredErrorMsg: 'Description is required'
         },
-        additionals: {
-            label: 'Additional',
-            name: 'additionals'
+        buildingFeatures: {
+            label: 'Building Features',
+            name: 'buildingFeatures'
+        },
+        unitFeatures: {
+            label: 'Building Features',
+            name: 'unitFeatures'
+        },
+        nearbyFeat: {
+            label: 'Nearby',
+            name: 'nearbyFeat'
+        },
+        leadEmail: {
+            label: 'Email',
+            name: 'leadEmail'
+        },
+        leadPhone: {
+            label: 'Phone*',
+            name: 'leadPhone'
+        },
+        status: {
+            label: 'Status',
+            name: 'status'
+        },
+        plan: {
+            label: 'Plan',
+            name: 'plan'
         }
     }
 };

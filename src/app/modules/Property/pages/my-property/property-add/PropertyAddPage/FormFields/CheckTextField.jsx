@@ -51,16 +51,17 @@ function CheckTextField(props) {
                 exclusive={exclusive}
                 onChange={_onChange}
                 value={selectedValue ? selectedValue : ''}
+                className='row'
             >
-                <div className='row'>
-                    {data.map((item, index) => (
-                        <div key={index} className='col-4'>
-                            <ToggleButton value={item.value} className=''>
-                                {item.label}
-                            </ToggleButton>
-                        </div>
-                    ))}
-                </div>
+                {data.map((item, index) => (
+                    <ToggleButton
+                        value={item.value}
+                        key={index}
+                        className='col-4'
+                    >
+                        {item.label}
+                    </ToggleButton>
+                ))}
             </ToggleButtonGroup>
 
             {_renderHelperText()}

@@ -277,6 +277,7 @@ html {
 .input-text-big input[type='text'] {
     font-size: 16px !important;
     font-family: proxima-nova, sans-serif !important;
+    color: #5c6f73 !important;
 }
 
 .next-btn {
@@ -336,6 +337,21 @@ html {
     margin-top: -0.7rem !important;
     font-weight: 500 !important;
 }
+
+.font-size-16 {
+    font-size: 16px !important;
+    font-family: proxima-nova, sans-serif !important;
+    line-height: 16px !important;
+    font-weight: 400 !important;
+}
+
+.font-size-14 {
+    font-size: 14px !important;
+    font-family: proxima-nova, sans-serif !important;
+    line-height: 14px !important;
+    font-weight: 400 !important;
+}
+
 .p-r-2 {
     padding-right: 2rem !important;
 }
@@ -390,4 +406,101 @@ html {
     font-size: 14px !important;
     font-weight: 600;
     color: #758d91;
+}
+
+.additional-feat button {
+    box-shadow: none !important;
+    font-family: proxima-nova, sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    color: #758d91 !important;
+    margin: 1rem 0rem 1rem 0rem !important;
+    text-align: left !important;
+}
+
+.additional-feat .MuiToggleButton-label {
+    display: inline !important;
+}
+
+.additional-feat button:hover {
+    background: transparent !important;
+    color: #a5b5b9 !important;
+}
+
+.additional-feat .MuiToggleButton-root.Mui-selected {
+    color: #0180b6 !important;
+    background-color: transparent !important;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type='number'] {
+    -moz-appearance: textfield;
+}
+
+.header-title {
+    font-size: 32px !important;
+    font-weight: 600 !important;
+    line-height: 32px !important;
+    color: #1c5663 !important;
+    font-family: proxima-nova, sans-serif !important;
+}
+
+.header-title svg {
+    color: #2f91a7 !important;
+    font-size: 39px !important;
+    margin-top: -1rem;
+}
+
+.color-default {
+    color: #0059ce !important;
+}
+
+.color-custom-gray {
+    color: #6b7873 !important;
+}
+
+.img-container {
+    height: 102px;
+    position: relative !important;
+    overflow: hidden;
+}
+
+.img-container img {
+    position: absolute;
+    min-height: 100%;
+    min-width: 100%;
+    width: 0;
+}
+
+.status-top-left {
+    position: absolute !important;
+    top: 10px;
+    left: 25px;
+    font-size: 1.4rem;
+    font-weight: 500;
+    border-radius: 1.7rem;
+    padding: 0.7rem 1rem 0.7rem 1rem;
+    line-height: 0.7rem;
+}
+
+.status-pending {
+    background: #0180b6;
+    color: #fff;
+}
+.status-disapproved {
+    background: #d3583c;
+    color: #fff;
+}
+.status-active {
+    background: yellowgreen;
+    color: #fff;
+}
+.status-disabled {
+    background: #e7846e;
+    color: #fff;
 }

@@ -255,7 +255,7 @@ function PropertyTypeForm(props) {
                             </p>
                         </div>
 
-                        <div className={classes.toggleContainer && 'col-8'}>
+                        <div className='col-8'>
                             <TogglebtnField
                                 aria-label='text propertType'
                                 name={propertySubCategory.name}

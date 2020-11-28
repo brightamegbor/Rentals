@@ -1,13 +1,14 @@
 import * as requestFromServer from "./productsCrud";
-import {productsSlice, callTypes} from "./productsSlice";
+import { productsSlice, callTypes } from "./productsSlice";
 
-const {actions} = productsSlice;
+const { actions } = productsSlice;
 
 export const fetchProducts = queryParams => dispatch => {
   dispatch(actions.startCall({ callType: callTypes.list }));
   return requestFromServer
     .findProducts(queryParams)
     .then(response => {
+      console.log(response.data);
       const { totalCount, entities } = response.data;
       dispatch(actions.productsFetched({ totalCount, entities }));
     })

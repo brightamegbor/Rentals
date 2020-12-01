@@ -55,5 +55,5 @@ export default {
     [leadEmail.name]: '',
     [leadPhone.name]: '',
     [status.name]: 'pending',
-    [plan.name]: '',
+    [plan.name]: 'free',
 };

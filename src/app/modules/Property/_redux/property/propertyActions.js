@@ -28,7 +28,7 @@ export const fetchProperty = id => dispatch => {
     .getPropertyById(id)
     .then(response => {
       const propertty = response.data;
-      dispatch(actions.propertyFetched({ productAdd: propertty }));
+      dispatch(actions.propertyFetched({ propertyAdd: propertty }));
     })
     .catch(error => {
       error.clientMessage = "Can't find property";

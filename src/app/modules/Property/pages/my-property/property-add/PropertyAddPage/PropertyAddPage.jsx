@@ -226,7 +226,7 @@ export default function PropertyAddPage() {
 
     async function _submitForm(values, actions) {
         await _sleep(1000);
-        alert(JSON.stringify(values, null, 2));
+        // alert(JSON.stringify(values, null, 2));
 
         dispatch(crudActions.createProperty(values)).then(() =>
             backToPropertyPage()
@@ -325,6 +325,16 @@ export default function PropertyAddPage() {
                                                                 Plan & Addons
                                                             </p>
                                                         </div>
+                                                        <div className='pt-4'>
+                                                            {isSubmitting && (
+                                                                <CircularProgress
+                                                                    size={24}
+                                                                    className={
+                                                                        classes.buttonProgress
+                                                                    }
+                                                                />
+                                                            )}
+                                                        </div>
                                                     </div>
                                                 ) : (
                                                     <div className='row next-btn-text'>
@@ -352,14 +362,6 @@ export default function PropertyAddPage() {
                                                 )}
                                             </Button>
                                         </div>
-                                        {isSubmitting && (
-                                            <CircularProgress
-                                                size={24}
-                                                className={
-                                                    classes.buttonProgress
-                                                }
-                                            />
-                                        )}
                                     </div>
                                 </Form>
                             )}

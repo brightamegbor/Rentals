@@ -2,21 +2,11 @@ import React, { useEffect, useMemo, useState } from "react";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import * as actions from "../../../_redux/property/propertyActions";
 import * as uiHelpers from "../PropertyUIHelpers";
-import {
-    NoRecordsFoundMessage,
-    PleaseWaitMessage
-} from "../../../../../../_metronic/_helpers";
-import { CardFooter, Pagination } from "../../../../../../_metronic/_partials/controls";
+import { Pagination } from "../../../../../../_metronic/_partials/controls";
 import { usePropertyUIContext } from "../PropertyUIContext";
-import {
-    Card,
-    CardBody,
-    CardHeader,
-    CardHeaderToolbar,
-} from "../../../../../../_metronic/_partials/controls";
-import MoreVertRounded from "@material-ui/icons/MoreVertRounded";
-import LaunchOutlined from "@material-ui/icons/LaunchOutlined";
-import EditnOutlinedIcon from "@material-ui/icons/EditOutlined";
+import { PropertyListCard } from "./PropertyListCard";
+import { PropertyListCardStatus } from "./PropertyListCardStatus";
+
 
 export function PropertyList() {
     // property ui context
@@ -122,69 +112,49 @@ export function PropertyList() {
                 {tab === "all" && (
                     <div>
                         {entities !== null && (
-                            <div>
-                                {entities.map((item, index) => (
-                                    <Card key={index}>
-                                        <CardBody className="row">
-                                            <div className="col-3 img-container">
-                                                <img alt="property" src={item.photos === "" ? "/media/stcok-900x600/20.jpg" : item.photos} />
-                                                {item.status === "pending" && (
-                                                    <div className="status-top-left status-pending"><small>Pending</small></div>
-                                                )}
-                                                {item.status === "active" && (
-                                                    <div className="status-top-left status-active"><small>Active</small></div>
-                                                )}
-                                                {item.status === "disabled" && (
-                                                    <div className="status-top-left status-disabled"><small>Disabled</small></div>
-                                                )}
-                                                {item.status === "disapproved" && (
-                                                    <div className="status-top-left status-disapproved"><small>Disapproved</small></div>
-                                                )}
-                                            </div>
-                                            <div className="col-8 font-size-14 pl-8 mt-2">
-                                                <h3 className="color-default">{item.propertySubCategory}</h3>
-                                                <h6 className="color-custom-gray">{item.propertyAddress}</h6>
+                            <PropertyListCard
+                                data={entities}
+                            />
 
-                                                <div className="row mt-6">
-                                                    <div className="col-3">
-                                                        <p><LaunchOutlined />View</p>
-                                                    </div>
-                                                    <div className="col-3">
-                                                        <p><EditnOutlinedIcon />Edit</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div className="col-1">
-                                                <MoreVertRounded />
-                                            </div>
-
-                                        </CardBody>
-
-                                        <CardFooter>
-                                            <div className="">
-                                                <p className="text-capitalize">{item.plan}</p>
-                                            </div>
-                                        </CardFooter>
-                                        <PleaseWaitMessage entities={entities} />
-                                        <NoRecordsFoundMessage entities={entities} />
-                                    </Card>
-
-                                ))}
-
-                            </div>
                         )}
 
                     </div>
                 )}
                 {tab === "Active" && (
-                    <p>Active tab</p>
+                    <div>
+                        {entities !== null && (
+                            <PropertyListCardStatus
+                                propStatus='active'
+                                secStatus='active'
+                                data={entities}
+                            />
+                        )}
+                    </div>
+
                 )}
                 {tab === "Pending" && (
-                    <p>Pending tab!</p>
+                    <div>
+                        {entities !== null && (
+                            <PropertyListCardStatus
+                                propStatus='pending'
+                                secStatus='pending'
+                                data={entities}
+                            />
+                        )}
+                    </div>
+
                 )}
                 {tab === "Disabled" && (
-                    <p>Disabled tab!</p>
+                    <div>
+                        {entities !== null && (
+                            <PropertyListCardStatus
+                                propStatus='disabled'
+                                secStatus='disapproved'
+                                data={entities}
+                            />
+                        )}
+                    </div>
+
                 )}
             </div>
 

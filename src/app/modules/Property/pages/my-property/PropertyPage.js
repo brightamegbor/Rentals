@@ -12,6 +12,10 @@ export function PropertyPage({ history }) {
         openEditPropertyPage: (id) => {
             history.push(`/my-property/my/${id}/edit`);
         },
+
+        openPropertyDetailsPage: (id) => {
+            history.push(`/my-property/preview/${id}`);
+        },
     };
 
 

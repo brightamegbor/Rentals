@@ -5,7 +5,7 @@ const initialPropertiesState = {
   actionsLoading: false,
   totalCount: 0,
   entities: null,
-  propertyAdd: undefined,
+  propertyDetails: undefined,
   lastError: null
 };
 export const callTypes = {
@@ -36,7 +36,7 @@ export const propertiesSlice = createSlice({
     // getPropertyById
     propertyFetched: (state, action) => {
       state.actionsLoading = false;
-      state.propertyAdd = action.payload.propertyAdd;
+      state.propertyDetails = action.payload.propertyDetails;
       state.error = null;
     },
     // findProperties

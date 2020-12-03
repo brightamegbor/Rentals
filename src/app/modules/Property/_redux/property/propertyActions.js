@@ -20,7 +20,7 @@ export const fetchProperties = queryParams => dispatch => {
 
 export const fetchProperty = id => dispatch => {
   if (!id) {
-    return dispatch(actions.propertyFetched({ propertyAdd: undefined }));
+    return dispatch(actions.propertyFetched({ propertyDetails: undefined }));
   }
 
   dispatch(actions.startCall({ callType: callTypes.action }));
@@ -28,7 +28,7 @@ export const fetchProperty = id => dispatch => {
     .getPropertyById(id)
     .then(response => {
       const propertty = response.data;
-      dispatch(actions.propertyFetched({ propertyAdd: propertty }));
+      dispatch(actions.propertyFetched({ propertyDetails: propertty }));
     })
     .catch(error => {
       error.clientMessage = "Can't find property";

@@ -17,7 +17,7 @@ export default [
     parkingType: "garage",
     parkingSpots: 2,
     rent: 530,
-    photos: "/media/stock-900x600/2.jpg",
+    photos: ["/media/stock-900x600/2.jpg", "/media/stock-900x600/24.jpg"],
     // eslint-disable-next-line
     description: `The Lotus Elise first appeared in 1996 and revolutionised small sports car design with its lightweight extruded aluminium chassis and composite body. There have been many variations, but the basic principle remain the same.`,
     buildingFeatures: "24h-security",
@@ -26,7 +26,8 @@ export default [
     leadEmail: "brytamegbor@gmail.com",
     leadPhone: "0558317703",
     status: "pending",
-    plan: "free"
+    plan: "free",
+    timestamp: "2020-09-22 11:22:02"
 
   },
   // eslint-disable-next-line
@@ -48,7 +49,7 @@ export default [
     parkingType: "",
     parkingSpots: 0,
     rent: 130,
-    photos: "/media/stock-900x600/24.jpg",
+    photos: ["/media/stock-900x600/24.jpg", "/media/stock-900x600/2.jpg"],
     // eslint-disable-next-line
     description: `The Lotus Elise first appeared in 1996 and revolutionised small sports car design with its lightweight extruded aluminium chassis and composite body. There have been many variations, but the basic principle remain the same.`,
     buildingFeatures: "24h-security",
@@ -57,7 +58,8 @@ export default [
     leadEmail: "brytamegbor@gmail.com",
     leadPhone: "0558317703",
     status: "disapproved",
-    plan: "free"
+    plan: "free",
+    timestamp: "2020-09-22 17:21:02"
   },
   {
     id: 3,
@@ -77,7 +79,7 @@ export default [
     parkingType: "",
     parkingSpots: 0,
     rent: 200,
-    photos: "/media/stock-900x600/27.jpg",
+    photos: ["/media/stock-900x600/27.jpg", "/media/stock-900x600/1.jpg"],
     // eslint-disable-next-line
     description: `The Lotus Elise first appeared in 1996 and revolutionised small sports car design with its lightweight extruded aluminium chassis and composite body. There have been many variations, but the basic principle remain the same.`,
     buildingFeatures: "24h-security",
@@ -86,7 +88,8 @@ export default [
     leadEmail: "brytamegbor@gmail.com",
     leadPhone: "0558317703",
     status: "active",
-    plan: "free"
+    plan: "free",
+    timestamp: "2020-09-22 14:22:02",
   },
   {
     id: 4,
@@ -106,7 +109,7 @@ export default [
     parkingType: "",
     parkingSpots: 0,
     rent: 450,
-    photos: "/media/stock-900x600/1.jpg",
+    photos: ["/media/stock-900x600/1.jpg", "/media/stock-900x600/27.jpg"],
     // eslint-disable-next-line
     description: `The Lotus Elise first appeared in 1996 and revolutionised small sports car design with its lightweight extruded aluminium chassis and composite body. There have been many variations, but the basic principle remain the same.`,
     buildingFeatures: "24h-security",
@@ -115,7 +118,8 @@ export default [
     leadEmail: "brytamegbor@gmail.com",
     leadPhone: "0558317703",
     status: "disabled",
-    plan: "free"
+    plan: "free",
+    timestamp: "2020-09-22 13:22:02"
   },
 
 ];

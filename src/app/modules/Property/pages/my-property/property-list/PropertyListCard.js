@@ -19,6 +19,7 @@ import AccountCircleOutlined from '@material-ui/icons/AccountCircleOutlined';
 import DeleteOutlinedIcon from '@material-ui/icons/DeleteOutlined';
 import InsertChartOutlinedIcon from '@material-ui/icons/InsertChartOutlined';
 import { withStyles } from '@material-ui/core/styles';
+import { Link, useHistory } from 'react-router-dom';
 
 
 const StyledMenu = withStyles({
@@ -26,10 +27,6 @@ const StyledMenu = withStyles({
         background: '#27788a',
         color: '#fff',
     },
-
-    svg: {
-        color: '#fff'
-    }
 })(props => (
     <Menu
         elevation={0}
@@ -71,13 +68,20 @@ export function PropertyListCard(props) {
         setAnchorEl(null);
     }
 
+    const history = useHistory();
+
+
+    const openPropertyDetailsPreview = (id) => {
+        history.push(`/my-property/preview/${id}`);
+    }
+
     return (
         <div {...rest}>
             {data.map((item, index) => (
                 <Card key={index}>
                     <CardBody className="row">
                         <div className="col-3 img-container">
-                            <img alt="property" src={item.photos === "" ? "/media/stcok-900x600/20.jpg" : item.photos} />
+                            <img alt="property" src={item.photos === "" ? "/media/stcok-900x600/20.jpg" : item.photos[0]} />
                             {item.status === "pending" && (
                                 <div className="status-top-left status-pending"><small>Pending</small></div>
                             )}
@@ -97,10 +101,13 @@ export function PropertyListCard(props) {
 
                             <div className="action-links mt-6">
                                 <div className="view-link">
-                                    <p><LaunchOutlined />View</p>
+                                    <Link
+                                        to={`/property/preview/${item.id}`}
+
+                                    ><LaunchOutlined />View</Link>
                                 </div>
                                 <div className="edit-link">
-                                    <p><EditOutlinedIcon />Edit</p>
+                                    <p><i className="fa fa-edit"></i>Edit</p>
                                 </div>
                             </div>
                         </div>
@@ -137,7 +144,8 @@ export function PropertyListCard(props) {
 
                                 <StyledMenuItem className="more-action-list-item">
                                     <ListItemIcon>
-                                        <EditOutlinedIcon />
+                                        {/* <EditOutlinedIcon /> */}
+                                        <i className="fa fa-edit"></i>
                                     </ListItemIcon>
                                     <ListItemText primary="Edit" />
                                 </StyledMenuItem>

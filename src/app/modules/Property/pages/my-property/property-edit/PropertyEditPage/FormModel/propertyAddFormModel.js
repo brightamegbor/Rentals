@@ -2,10 +2,7 @@ export default {
     formId: 'propertyAddForm',
     formField: {
         id: {
-            name: 'id'
-        },
-        propertyID: {
-            name: 'propertyID'
+            name: 'id',
         },
         propertyCategory: {
             name: 'propertyCategory',
@@ -107,6 +104,11 @@ export default {
         planAddons: {
             label: 'Plan & Addons',
             name: 'planAddons'
+        }
+        ,
+        timestamp: {
+            label: 'Timestamp',
+            name: 'timestamp'
         }
     }
 };

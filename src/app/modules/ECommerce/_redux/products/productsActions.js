@@ -28,6 +28,7 @@ export const fetchProduct = id => dispatch => {
     .getProductById(id)
     .then(response => {
       const product = response.data;
+      console.log(product);
       dispatch(actions.productFetched({ productForEdit: product }));
     })
     .catch(error => {

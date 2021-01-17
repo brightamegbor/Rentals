@@ -10,64 +10,21 @@ import {
 } from "../../../../../../_metronic/_helpers";
 import MoreVertRounded from "@material-ui/icons/MoreVertRounded";
 import LaunchOutlined from "@material-ui/icons/LaunchOutlined";
-import EditOutlinedIcon from "@material-ui/icons/EditOutlined";
-import Menu from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
 import AccountCircleOutlined from '@material-ui/icons/AccountCircleOutlined';
 import DeleteOutlinedIcon from '@material-ui/icons/DeleteOutlined';
-import InsertChartOutlinedIcon from '@material-ui/icons/InsertChartOutlined';
-import { withStyles } from '@material-ui/core/styles';
-import { Link, useHistory } from 'react-router-dom';
-
-
-const StyledMenu = withStyles({
-    paper: {
-        background: '#27788a',
-        color: '#fff',
-    }
-})(props => (
-    <Menu
-        elevation={0}
-        getContentAnchorEl={null}
-        anchorOrigin={{
-            vertical: 'bottom',
-            horizontal: 'right',
-        }}
-        transformOrigin={{
-            vertical: 'top',
-            horizontal: 'right',
-        }}
-        {...props}
-    />
-));
-
-const StyledMenuItem = withStyles(theme => ({
-    root: {
-        '&:focus': {
-            backgroundColor: 'transparent',
-            // '& .MuiListItemIcon-root, & .MuiListItemText-primary': {
-            //     color: theme.palette.common.white,
-            // },
-        },
-    },
-}))(MenuItem);
+import { Link } from 'react-router-dom';
+import { Dropdown, DropdownButton } from 'react-bootstrap';
 
 
 
 export function PropertyListCardStatus(props) {
-    const { data, propStatus, secStatus, ...rest } = props;
-
-    const [anchorEl, setAnchorEl] = React.useState(null);
-
-    function openMoreAction(event) {
-        setAnchorEl(event.currentTarget);
-    }
-
-    function handleClose() {
-        setAnchorEl(null);
-    }
+    const { data,
+        openDeletePropertyDialog,
+        openPropertyDetailsPage,
+        openEditPropertyPage,
+        openPropertyAddonsPage,
+        propStatus,
+        secStatus, ...rest } = props;
 
     return (
         <div {...rest}>
@@ -103,63 +60,57 @@ export function PropertyListCardStatus(props) {
                                             ><LaunchOutlined />View</Link>
                                         </div>
                                         <div className="edit-link">
-                                            <p><EditOutlinedIcon />Edit</p>
+                                            <Link
+                                                to={`/property/edit/${item.id}`}
+                                            >
+                                                <i className="fa fa-edit"></i>Edit
+                                            </Link>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div className="col-1">
-                                    <button
-                                        aria-controls="customized-menu"
-                                        aria-haspopup="true"
-                                        onClick={openMoreAction}
-                                        className="btn card-more-action-icon">
-                                        <MoreVertRounded />
-                                    </button>
+                                <div className="col-1 more-action">
 
-                                    <StyledMenu
-                                        id="customized-menu"
-                                        anchorEl={anchorEl}
-                                        keepMounted
-                                        open={Boolean(anchorEl)}
-                                        onClose={handleClose}
+                                    <DropdownButton
+                                        alignRight
+                                        title={<MoreVertRounded />}
+                                        id="dropdown-menu-align-right"
                                     >
-                                        <StyledMenuItem className="more-action-list-item">
-                                            <ListItemIcon>
-                                                <LaunchOutlined />
-                                            </ListItemIcon>
-                                            <ListItemText primary="View" />
-                                        </StyledMenuItem>
+                                        <Dropdown.Item onClick={() => openPropertyDetailsPage(item.id)
+                                        } eventKey="1">
 
-                                        <StyledMenuItem className="more-action-list-item">
-                                            <ListItemIcon>
-                                                <AccountCircleOutlined />
-                                            </ListItemIcon>
-                                            <ListItemText primary="Leads" />
-                                        </StyledMenuItem>
+                                            <LaunchOutlined /> View
+                                </Dropdown.Item>
+                                        <Dropdown.Item eventKey="2">
+                                            <AccountCircleOutlined /> Leads
+                                    </Dropdown.Item>
 
-                                        <StyledMenuItem className="more-action-list-item">
-                                            <ListItemIcon>
-                                                <EditOutlinedIcon />
-                                            </ListItemIcon>
-                                            <ListItemText primary="Edit" />
-                                        </StyledMenuItem>
+                                        <Dropdown.Item onClick={() => openEditPropertyPage(item.id)
+                                        } eventKey="3">
 
-                                        <StyledMenuItem className="more-action-list-item">
-                                            <ListItemIcon>
-                                                <DeleteOutlinedIcon />
-                                            </ListItemIcon>
-                                            <ListItemText primary="Delete" />
-                                        </StyledMenuItem>
+                                            <i className="fa fa-edit"></i> Edit
 
-                                        <StyledMenuItem className="more-action-list-item">
-                                            <ListItemIcon>
-                                                <InsertChartOutlinedIcon />
-                                            </ListItemIcon>
-                                            <ListItemText primary="Plans & Addons" />
-                                        </StyledMenuItem>
+                                </Dropdown.Item>
 
-                                    </StyledMenu>
+                                        <Dropdown.Item onClick={() => openDeletePropertyDialog(item.id)
+                                        } eventKey="4" >
+
+                                            <DeleteOutlinedIcon /> Delete
+
+                                </Dropdown.Item>
+
+                                        <Dropdown.Item eventKey="5">
+                                            <Link
+                                                to={`/property/${item.id}/addons`}
+                                            >
+
+                                                <i className="fa fa-chart-bar"></i>
+                                     Plans & Addons
+                                    </Link>
+                                        </Dropdown.Item>
+                                    </DropdownButton>
+
+
 
                                 </div>
 
@@ -169,20 +120,22 @@ export function PropertyListCardStatus(props) {
                                 <div className="prop-footer-cta">
                                     <div className="property-footer">
                                         <ul className="property-card-footer">
-                                            <li className="text-capitalize"><span className="plan">{item.plan}</span></li>
+                                            <li className="text-capitalize"><span className="plan">{item.planAddons}</span></li>
                                             <li><h3>Views</h3> <span>0</span></li>
                                             <li><h3>Leads</h3> <span>0</span></li>
                                         </ul>
                                     </div>
 
                                     <div>
-                                        <a className="btn-br btn-plans">Plans & Addons</a>
+                                        <a href={`/property/${item.id}/addons`} className="btn-br btn-plans">Plans & Addons</a>
                                         <a className="btn-br btn-leads">Leads</a>
                                     </div>
                                 </div>
                             </CardFooter>
                             <PleaseWaitMessage entities={data} />
                             <NoRecordsFoundMessage entities={data} />
+
+                            {item.status === "" && (<div>No property found</div>)}
                         </Card>
                     )}
                 </div>

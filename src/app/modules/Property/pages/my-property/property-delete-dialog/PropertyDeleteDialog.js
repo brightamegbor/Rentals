@@ -3,23 +3,23 @@ import React, { useEffect, useMemo } from "react";
 import { Modal } from "react-bootstrap";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import { ModalProgressBar } from "../../../../../../_metronic/_partials/controls";
-import * as actions from "../../../_redux/products/productsActions";
-import { useProductsUIContext } from "../PropertyUIContext";
+import * as actions from "../../../_redux/property/propertyActions";
+import { usePropertyUIContext } from "../PropertyUIContext";
 
 export function PropertyDeleteDialog({ id, show, onHide }) {
   // Products UI Context
-  const productsUIContext = useProductsUIContext();
-  const productsUIProps = useMemo(() => {
+  const propertyUIContext = usePropertyUIContext();
+  const propertyUIProps = useMemo(() => {
     return {
-      setIds: productsUIContext.setIds,
-      queryParams: productsUIContext.queryParams,
+      setIds: propertyUIContext.setIds,
+      queryParams: propertyUIContext.queryParams,
     };
-  }, [productsUIContext]);
+  }, [propertyUIContext]);
 
   // Products Redux state
   const dispatch = useDispatch();
   const { isLoading } = useSelector(
-    (state) => ({ isLoading: state.products.actionsLoading }),
+    (state) => ({ isLoading: state.properties.actionsLoading }),
     shallowEqual
   );
 
@@ -34,13 +34,13 @@ export function PropertyDeleteDialog({ id, show, onHide }) {
   // looking for loading/dispatch
   useEffect(() => { }, [isLoading, dispatch]);
 
-  const deleteProduct = () => {
+  const deleteProperty = () => {
     // server request for deleting product by id
-    dispatch(actions.deleteProduct(id)).then(() => {
+    dispatch(actions.deleteProperty(id)).then(() => {
       // refresh list after deletion
-      dispatch(actions.fetchProducts(productsUIProps.queryParams));
+      dispatch(actions.fetchProperties(propertyUIProps.queryParams));
       // clear selections list
-      productsUIProps.setIds([]);
+      propertyUIProps.setIds([]);
       // closing delete modal
       onHide();
     });
@@ -55,14 +55,14 @@ export function PropertyDeleteDialog({ id, show, onHide }) {
       {isLoading && <ModalProgressBar variant="query" />}
       <Modal.Header closeButton>
         <Modal.Title id="example-modal-sizes-title-lg">
-          Product Delete
+          Property Delete
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
         {!isLoading && (
-          <span>Are you sure to permanently delete this product?</span>
+          <span>Are you sure to permanently delete this property?</span>
         )}
-        {isLoading && <span>Product is deleting...</span>}
+        {isLoading && <span>Property is deleting...</span>}
       </Modal.Body>
       <Modal.Footer>
         <div>
@@ -76,8 +76,8 @@ export function PropertyDeleteDialog({ id, show, onHide }) {
           <> </>
           <button
             type="button"
-            onClick={deleteProduct}
-            className="btn btn-delete btn-elevate"
+            onClick={deleteProperty}
+            className="btn btn-danger btn-delete btn-elevate"
           >
             Delete
           </button>

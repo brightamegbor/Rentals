@@ -63,12 +63,12 @@ export const createProperty = propertyForCreation => dispatch => {
     });
 };
 
-export const updateProperty = property => dispatch => {
+export const updateProperty = propertty => dispatch => {
   dispatch(actions.startCall({ callType: callTypes.action }));
   return requestFromServer
-    .updateProperty(property)
+    .updateProperty(propertty)
     .then(() => {
-      dispatch(actions.propertyUpdated({ property }));
+      dispatch(actions.propertyUpdated({ propertty }));
     })
     .catch(error => {
       error.clientMessage = "Can't update property";

@@ -472,6 +472,7 @@ input[type='number'] {
     height: 102px;
     position: relative !important;
     overflow: hidden;
+    cursor: pointer;
 }
 
 .img-container img {
@@ -479,6 +480,12 @@ input[type='number'] {
     min-height: 100%;
     min-width: 100%;
     width: 0;
+    cursor: pointer;
+}
+
+.listings-info h3,
+.listings-info h6 {
+    cursor: pointer;
 }
 
 .status-top-left {
@@ -616,7 +623,7 @@ input[type='number'] {
     color: #fff !important;
 }
 
-.card-more-action-icon {
+.more-action .dropdown-toggle {
     display: flex;
     -webkit-box-pack: center;
     justify-content: center;
@@ -628,20 +635,33 @@ input[type='number'] {
     border-radius: 50%;
     font-size: 2.2rem;
     color: #fff;
+    border-color: transparent !important;
 }
 
-.card-more-action-icon svg {
+.more-action .dropdown-toggle svg {
     font-size: 2.2rem;
     text-align: center;
 }
 
-.card-more-action-icon:hover {
+.more-action .dropdown-toggle:hover {
     background: rgba(28, 86, 99, 0.6) !important;
     color: #fff !important;
+    border-color: transparent !important;
 }
 
 .more-action-list-item {
     color: #fff !important;
+    cursor: default !important;
+}
+
+.more-action-list-item a {
+    color: inherit;
+}
+
+.more-action-list-item a:hover,
+.more-action-list-item a:hover > svg,
+.more-action-list-item i:hover {
+    color: rgb(190, 189, 189) !important;
 }
 
 .more-action-list-item .MuiListItemText-primary {
@@ -657,7 +677,7 @@ input[type='number'] {
 
 .more-action-list-item:hover {
     background: transparent !important;
-    color: rgb(190, 189, 189) !important;
+    color: inherit !important;
 }
 
 .more-action-list-item .MuiListItemIcon-root {
@@ -670,6 +690,7 @@ input[type='number'] {
 }
 
 .edit-link i,
+.edit-link a,
 .view-link a {
     color: #758d91;
 }
@@ -927,4 +948,417 @@ ul {
 
 .btn-report:hover > i {
     color: #758d91;
+}
+
+.custom-display-flex {
+    display: flex;
+    flex-direction: row;
+}
+
+.custom-display-flex .publish {
+    padding: 0.5rem 1.2rem 1rem 0.1rem;
+}
+
+.more-action .dropdown-toggle.nav-link:after,
+.more-action .dropdown-toggle.btn:after {
+    margin-left: 0 !important;
+    display: none !important;
+    content: none !important;
+}
+
+.more-action .dropdown-toggle {
+    border-radius: 50% !important;
+}
+
+.more-action .dropdown-menu {
+    background: #27788a !important;
+    margin-top: 5px !important;
+    color: #fff !important;
+}
+
+.dropdown-menu.show:before {
+    content: '';
+    display: inline-block !important;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-bottom: 7px solid #27788a;
+    position: absolute;
+    top: -7px;
+    right: 12px;
+}
+
+.dropdown-menu.show:after {
+    content: '';
+    display: inline-block !important;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 6px solid #27788a;
+    position: absolute;
+    top: -6px;
+    right: 13px;
+}
+
+.more-action .dropdown-menu a:hover {
+    background: transparent !important;
+    color: #758d91 !important;
+}
+
+.more-action .dropdown-item {
+    color: #fff !important;
+    font-size: 1.2rem !important;
+}
+
+.more-action .dropdown-item {
+    padding-top: 0.1rem !important;
+}
+
+.more-action .dropdown-item:last-child {
+    padding-bottom: 0.2rem !important;
+}
+
+.more-action .dropdown-item svg,
+.more-action .dropdown-item i {
+    color: #fff;
+    margin-right: 1.7rem !important;
+}
+
+.more-action .dropdown-item a:hover,
+.more-action .dropdown-item:hover * {
+    color: #758d91 !important;
+}
+
+.show > .btn-primary.dropdown-toggle,
+.more-action
+    .btn.btn-primary:hover:not(.btn-text):not(:disabled):not(.disabled),
+.more-action .btn.btn-primary:focus:not(.btn-text),
+.more-action .btn.btn-primary.focus:not(.btn-text) {
+    background: #27788a !important;
+}
+
+.more-action .dropdown-item:last-child > a {
+    color: inherit !important;
+}
+
+.addons-top-left li:first-child {
+    font-size: 16px;
+    font-weight: 600;
+    color: #364143;
+}
+
+.addons-top-left li:nth-child(2) {
+    font-size: 16px;
+}
+
+.addons-top-left p {
+    text-transform: capitalize;
+}
+
+.addons-top-left i {
+    font-size: 10px;
+    padding-right: 5px;
+}
+
+.addons-top-left .color-pending,
+.color-pending * {
+    color: #0180b6;
+}
+
+.addons-top-left .color-active,
+.color-active * {
+    color: yellowgreen;
+}
+
+.addons-top-left .color-disapproved,
+.color-disapproved * {
+    color: #d3583c;
+}
+
+.addons-header-01 .status {
+    margin-bottom: 1px;
+}
+
+.addons-header-01 h1 {
+    margin-bottom: 1px;
+}
+
+.plans-card-container {
+    margin-top: 1.2rem;
+    background: #4f859c;
+    color: #fff;
+    border-radius: 1.7rem 1.7rem 0 0;
+    // text-align: center;
+    padding-left: 6rem;
+    padding-right: 6rem;
+}
+
+.plans-card-container .switcher {
+    text-align: center;
+}
+
+.plans-card-container h2:first-child {
+    color: #fff;
+    padding-top: 2.4rem;
+    font-size: 2.5rem;
+    text-align: center;
+    font-weight: 600;
+}
+
+.plans-card-container p:nth-child(2) {
+    color: #cdecf3;
+    font-size: 1.6rem;
+    margin-top: 1.5rem;
+    line-height: 1.3;
+    margin-bottom: 3rem;
+}
+
+.plans-card-container p strong {
+    color: #fff;
+}
+
+.plans-card-container .switcher {
+    margin-bottom: 5rem;
+}
+
+// .switcher {
+
+// }
+
+.addon-toggle-days {
+    position: relative;
+    display: block;
+    background-color: #fff;
+    border: 2px solid;
+    border-radius: 99rem !important;
+}
+
+.addon-toggle-days button {
+    padding-left: 1.2rem;
+    padding-right: 1.2rem;
+    text-transform: uppercase;
+    font-size: 14px;
+    text-align: center;
+    color: #009c90;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: proxima-nova, sans-serif !important;
+    background-color: transparent;
+    border: none !important;
+    width: 8.2rem !important;
+    height: 3rem !important;
+}
+
+.plans-card-container .addon-toggle-days:before {
+    width: 8.65rem;
+    height: 3rem;
+    background: #0175c0;
+}
+
+.addon-toggle-days:before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    width: 3.7rem;
+    height: 3.7rem;
+    border-radius: 99rem;
+    background: #fff;
+    // top: -0.15rem;
+    width: 9.65rem;
+    height: 3.2rem;
+    background: #0175c0;
+}
+
+.addon-toggle-days:before,
+.active-left,
+.active-right {
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+
+.addon-toggle-days .MuiToggleButton-root.Mui-selected {
+    background-color: transparent !important;
+    color: #fff !important;
+}
+
+.addon-toggle-days--active-right:before {
+    left: 100%;
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+}
+
+.plan-details {
+    background-color: #fff;
+    color: #1c5663;
+    border-radius: 10px;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    -webkit-box-flex: 1;
+    flex: 1;
+    padding: 3rem 2rem;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.plan-details-header {
+    text-align: center;
+}
+
+.plan-details-header h3 {
+    font-size: 1.8rem;
+    font-weight: 500;
+    line-height: 1.15;
+    color: #1c5663;
+}
+
+.plan-details-header ul {
+    display: flex;
+    margin-top: 0.5rem;
+    font-weight: 700;
+    font-size: 12px;
+    color: #2f91a7;
+    text-transform: uppercase;
+    padding: 0;
+}
+
+.plan-details-header ul li + li {
+    padding-left: 1rem;
+}
+
+.plan-details-header ul li + li:before {
+    position: relative;
+    top: -0.1rem;
+    content: '\02022';
+    display: inline-block;
+    color: #a5b5b9;
+    padding-right: 1rem;
+}
+
+.below-header-price {
+    font-size: 3.2rem;
+    font-weight: 600;
+    color: #1c5663;
+}
+
+.below-header-price sup {
+    font-size: 2rem;
+    color: #4f859c;
+}
+
+.plan-details-content {
+    -webkit-box-flex: 1;
+    flex: 1;
+    margin: 3rem 0;
+    color: #1c5663;
+    line-height: 1.3;
+    text-align: center;
+    margin-bottom: 1.1rem;
+}
+
+.plan-details-content ul {
+    padding: 0;
+    font-size: 1.3rem;
+}
+
+.plan-details-content li:not(:last-child) {
+    margin-bottom: 1rem;
+}
+
+.plan-details-content li:before {
+    content: '\02022';
+    display: inline-block;
+    margin-right: 0.5rem;
+}
+
+@media (min-width: 576px) {
+    .plan-details .plan-details-footer .btn {
+        width: 16rem;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+// .plan-details-footer {
+//     width: 100%;
+// }
+
+.plan-details-footer .btn-primary {
+    border-radius: 99rem;
+    background-color: #8acfe0;
+    color: #1c5663;
+    font-weight: 600;
+    font-size: 1.2rem;
+    font-family: proxima-nova, sans-serif !important;
+    border: 0;
+    text-transform: capitalize;
+    line-height: 1;
+}
+
+.current-plan-badge {
+    text-transform: uppercase;
+    padding: 0.5rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border-radius: 0.4rem;
+    background: #3cd3a3;
+    color: #fff;
+    position: absolute;
+    left: 2rem;
+    top: 1rem;
+}
+
+.btn-primary.change-plan {
+    background-color: #27788a;
+    color: #fff;
+}
+
+.cart-next-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.cart-next-btn {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    min-width: 20rem;
+    height: 5rem;
+    padding: 1rem 2rem;
+    border: 0;
+    border-radius: 0.9rem;
+    background: #3cd3a3;
+    text-align: left;
+    color: #fff;
+    cursor: pointer;
+}
+
+.proceed-payment-container {
+    -webkit-box-flex: 1;
+    flex: 1;
+    margin-right: 2rem;
+    margin-top: 1rem;
+}
+
+.proceed-payment-title {
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.proceed-payment-icon {
+    font-size: 1.8rem !important;
+    // margin-top: -1rem;
+}
+
+.plans-card-container--has-selection
+    .plan-details:not(.plan-details--selected) {
+    // display: block;
+    opacity: 0.75;
+}
+
+.plan-details.plan-details--selected {
+    border: 0.4rem solid #27788a !important;
+    -webkit-box-shadow: 0 0.2rem 0.8rem rgba(28, 86, 99, 0.3);
+    box-shadow: 0 0.2rem 0.8rem rgba(28, 86, 99, 0.3);
+    border-radius: 1.35rem;
 }

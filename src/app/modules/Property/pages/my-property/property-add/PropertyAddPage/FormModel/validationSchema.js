@@ -13,7 +13,7 @@ const {
         otherDetails,
         bathroomType,
         rent,
-        // photos,
+        photos,
         description,
         leadPhone
     }
@@ -26,49 +26,49 @@ export default [
 
     Yup.object().shape({
         [propertyCategory.name]: Yup.string()
-            .nullable(),
-        // .required("Please choose a category"),
+            .nullable()
+            .required("Please choose a category"),
         [propertySubCategory.name]: Yup.string()
-            .nullable(),
-        // .required("Please choose a sub category"),
+            .nullable()
+            .required("Please choose a sub category"),
         [propertyAddress.name]: Yup.string()
             .min(5, 'Address too short')
-            .max(250, 'Address Too long'),
-        // .required("Address is required"),
-        // [propertyUnit.name]: Yup.string()
+            .max(250, 'Address Too long')
+            .required("Address is required"),
+        [propertyUnit.name]: Yup.string()
 
-        // .required("Unit is required"),
-        // [propertyLandmark.name]: Yup.string()
+            .required("Unit is required"),
+        [propertyLandmark.name]: Yup.string()
 
-        // .required("Landmark is required"),
+            .required("Landmark is required"),
     }),
     Yup.object().shape({
-        // [utilities.name]: Yup.string()
-        // .required("Please choose a utilities"),
+        [utilities.name]: Yup.string()
+            .required("Please choose a utilities"),
         [furnished.name]: Yup.string()
-            .nullable(),
-        // .required("Please choose a type"),
+            .nullable()
+            .required("Please choose a type"),
         [leaseTerms.name]: Yup.string()
-            .nullable(),
-        // .required("Please choose a lease term"),
-        // [otherDetails.name]: Yup.string()
-        // .required("Other details is required"),
-        // [bathroomType.name]: Yup.string()
-        //     .required("Please choose a type"),
+            .nullable()
+            .required("Please choose a lease term"),
+        [otherDetails.name]: Yup.string()
+            .required("Other details is required"),
+        [bathroomType.name]: Yup.string()
+            .required("Please choose a type"),
     }),
     Yup.object().shape({
-        // [rent.name]: Yup.string()
-        //     .required("Rent is required")
-        //     .matches(rentRegEx, 'Rent value is invalid'),
+        [rent.name]: Yup.string()
+            .required("Rent is required")
+            .matches(rentRegEx, 'Rent value is invalid'),
         // [photos.name]: Yup.string()
         //     .required("Please upload a photo"),
         [description.name]: Yup.string()
             .nullable()
-            .min(20, 'Description too short'),
-        // .required("Description is required"),
-        // [leadPhone.name]: Yup.string()
-        //     .required("Phone is required")
-        //     .min(10, 'Enter 10 digits number')
-        //     .matches(phoneRegEx, 'Phone number is invalid'),
+            .min(20, 'Description too short')
+            .required("Description is required"),
+        [leadPhone.name]: Yup.string()
+            .required("Phone is required")
+            .min(10, 'Enter 10 digits number')
+            .matches(phoneRegEx, 'Phone number is invalid'),
     })
 ];

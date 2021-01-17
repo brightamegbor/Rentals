@@ -26,7 +26,7 @@ export default [
     leadEmail: "brytamegbor@gmail.com",
     leadPhone: "0558317703",
     status: "pending",
-    plan: "free",
+    planAddons: "free",
     timestamp: "2020-09-22 11:22:02"
 
   },
@@ -34,7 +34,7 @@ export default [
   {
     id: 2,
     propertyCategory: "House",
-    propertySubCategory: "house",
+    propertySubCategory: "House",
     propertyAddress: "Koforidua, Adweso",
     propertyUnit: "",
     propertyLandmark: "",
@@ -58,7 +58,7 @@ export default [
     leadEmail: "brytamegbor@gmail.com",
     leadPhone: "0558317703",
     status: "disapproved",
-    plan: "free",
+    planAddons: "free",
     timestamp: "2020-09-22 17:21:02"
   },
   {
@@ -88,7 +88,7 @@ export default [
     leadEmail: "brytamegbor@gmail.com",
     leadPhone: "0558317703",
     status: "active",
-    plan: "free",
+    planAddons: "free",
     timestamp: "2020-09-22 14:22:02",
   },
   {
@@ -118,7 +118,7 @@ export default [
     leadEmail: "brytamegbor@gmail.com",
     leadPhone: "0558317703",
     status: "disabled",
-    plan: "free",
+    planAddons: "free",
     timestamp: "2020-09-22 13:22:02"
   },
 

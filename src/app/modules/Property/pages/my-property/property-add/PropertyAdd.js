@@ -8,6 +8,7 @@ import {
 } from "../../../../../../_metronic/_partials/controls";
 import { Link } from "react-router-dom";
 import PropertyAddPage from './PropertyAddPage';
+import { useSubheader } from "../../../../../../_metronic/layout";
 
 
 export function PropertyAdd({ history }) {
@@ -17,6 +18,12 @@ export function PropertyAdd({ history }) {
     }
 
 
+    const suhbeader = useSubheader();
+
+    useEffect(() => {
+
+        suhbeader.setTitle('New Property');
+    }, [useSubheader]);
 
     return (
         <Card>

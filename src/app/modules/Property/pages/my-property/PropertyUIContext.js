@@ -36,7 +36,9 @@ export function PropertyUIProvider({ propertyUIEvents, children }) {
         newPropertyButtonClick: propertyUIEvents.newPropertyButtonClick,
         openEditPropertyPage: propertyUIEvents.openEditPropertyPage,
         openDeletePropertyDialog: propertyUIEvents.openDeletePropertyDialog,
+        openPropertyDetailsPage: propertyUIEvents.openPropertyDetailsPage,
         openDeletePropertiesDialog: propertyUIEvents.openDeletePropertiesDialog,
+        openPropertyAddonsPage: propertyUIEvents.openPropertyAddonsPage,
         openFetchPropertiesDialog: propertyUIEvents.openFetchPropertiesDialog,
         openUpdatePropertiesStatusDialog:
             propertyUIEvents.openUpdatePropertiesStatusDialog,
@@ -48,3 +50,4 @@ export function PropertyUIProvider({ propertyUIEvents, children }) {
         </PropertyUIContext.Provider>
     );
 }
+

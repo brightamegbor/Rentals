@@ -1,12 +1,12 @@
 import React from "react";
-import {ListsWidget10, ListsWidget11, AdvanceTablesWidget1, MixedWidget6, MixedWidget10, MixedWidget11, MixedWidget12, TilesWidget1, TilesWidget3, TilesWidget10, TilesWidget11, TilesWidget12, TilesWidget13, TilesWidget14} from "../widgets";
+import { ListsWidget10, ListsWidget11, AdvanceTablesWidget1, MixedWidget6, MixedWidget10, MixedWidget11, MixedWidget12, TilesWidget1, TilesWidget3, TilesWidget10, TilesWidget11, TilesWidget12, TilesWidget13, TilesWidget14 } from "../widgets";
 
 export function Demo2Dashboard() {
     return <>
         {/* begin::Dashboard */}
-        
+
         {/* begin::Row */}
-        <div className="row">
+        {/* <div className="row">
             <div className="col-xl-4">
                 <TilesWidget1 className="gutter-b card-stretch" chartColor="danger" />
             </div>
@@ -40,11 +40,11 @@ export function Demo2Dashboard() {
                 </div>
 
             </div>
-        </div>
+        </div> */}
         {/* end::Row */}
 
         {/* begin::Row */}
-        <div className="row">
+        {/* <div className="row">
             <div className="col-lg-6 col-xxl-4">
                 <MixedWidget6 className="gutter-b card-stretch" chartColor="danger" />
             </div>
@@ -52,11 +52,11 @@ export function Demo2Dashboard() {
             <div className="col-lg-6 col-xxl-8">
                 <AdvanceTablesWidget1 className="card-stretch gutter-b" />
             </div>
-        </div>
+        </div> */}
         {/* end::Row */}
 
         {/* begin::Row */}
-        <div className="row">
+        {/* <div className="row">
             <div className="col-xl-4">
                 <MixedWidget10 className="card-stretch gutter-b" />
             </div>
@@ -68,18 +68,18 @@ export function Demo2Dashboard() {
             <div className="col-xl-4">
                 <MixedWidget12 className="card-stretch gutter-b" />
             </div>
-        </div>
+        </div> */}
         {/* end::Row */}
 
         {/* begin::Row */}
-        <div className="row">
+        {/* <div className="row">
             <div className="col-lg-6">
                 <ListsWidget10 className="card-stretch gutter-b" />
             </div>
             <div className="col-lg-6">
                 <ListsWidget11 className="card-stretch gutter-b" />
             </div>
-        </div>
+        </div> */}
         {/* end::Row */}
 
         {/* end::Dashboard */}

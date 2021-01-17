@@ -25,7 +25,8 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import AppBar from '@material-ui/core/AppBar';
 import Divider from '@material-ui/core/Divider';
-
+import { Link } from 'react-router-dom';
+import { useSubheader } from "../../../../../../_metronic/layout";
 
 const useStyles = makeStyles({
     root: {
@@ -50,6 +51,8 @@ export function PropertyDetails({
 
     const dispatch = useDispatch();
 
+    const suhbeader = useSubheader();
+
     const { actionsLoading, propertyDetails } = useSelector(
         (state) => ({
             actionsLoading: state.properties.actionsLoading,
@@ -65,6 +68,16 @@ export function PropertyDetails({
 
         handleShow();
     }, [id, dispatch]);
+
+    useEffect(() => {
+        let _title = 'View Property';
+        if (propertyDetails && id) {
+            _title = `View Property '${propertyDetails.propertySubCategory} - ${propertyDetails.propertyAddress}'`;
+
+        }
+        suhbeader.setTitle(_title);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [propertyDetails, id]);
 
     const _handleBack = () => {
         history.push(`/property/my`);
@@ -180,7 +193,15 @@ export function PropertyDetails({
                         )}
 
                         <div className="edit-link mt-5">
-                            <button className="btn btn-details-edit"><i className="fa fa-edit"></i>Edit</button>
+                            <Link
+                                to={`/property/edit/${propertyDetails.id}`}
+                            >
+                                <button
+                                    className="btn btn-details-edit">
+                                    <i className="fa fa-edit"></i>
+                                Edit
+                            </button>
+                            </Link>
                         </div>
 
 

@@ -48,3 +48,4 @@ export function ProductsUIProvider({ productsUIEvents, children }) {
     </ProductsUIContext.Provider>
   );
 }
+

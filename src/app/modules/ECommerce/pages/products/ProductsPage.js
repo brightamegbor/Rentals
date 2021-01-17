@@ -43,6 +43,7 @@ export function ProductsPage({ history }) {
           />
         )}
       </Route>
+
       <Route path="/e-commerce/products/:id/delete">
         {({ history, match }) => (
           <ProductDeleteDialog
@@ -75,6 +76,7 @@ export function ProductsPage({ history }) {
           />
         )}
       </Route>
+
       <ProductsCard />
     </ProductsUIProvider>
   );

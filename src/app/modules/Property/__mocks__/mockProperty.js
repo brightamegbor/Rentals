@@ -28,7 +28,8 @@ export default function mockProperties(mock) {
       nearbyFeat = "",
       leadEmail = "",
       leadPhone = "",
-      status = ""
+      status = "",
+      planAddons = "",
 
     } = propertty;
 
@@ -58,7 +59,8 @@ export default function mockProperties(mock) {
       nearbyFeat,
       leadEmail,
       leadPhone,
-      status
+      status,
+      planAddons
     };
     propertyCardMock.push(newProperty);
     return [200, { propertty: newProperty }];

@@ -3,7 +3,6 @@ import propertyAddFormModel from './propertyAddFormModel';
 const {
     formField: {
         id,
-        propertyID,
         propertyCategory,
         propertySubCategory,
         propertyAddress,
@@ -29,12 +28,12 @@ const {
         leadPhone,
         status,
         planAddons,
+        timestamp
     }
 } = propertyAddFormModel;
 
 export default {
     [id.name]: '',
-    [propertyID.name]: '',
     [propertyCategory.name]: '',
     [propertySubCategory.name]: '',
     [propertyAddress.name]: '',
@@ -60,4 +59,5 @@ export default {
     [leadPhone.name]: '',
     [status.name]: 'pending',
     [planAddons.name]: 'free',
+    [timestamp.name]: '',
 };

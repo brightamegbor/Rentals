@@ -10,34 +10,34 @@ export const ActionsColumnFormatter = (
   rowIndex,
   { openEditProductPage, openDeleteProductDialog }
 ) => (
-  <>
-    <OverlayTrigger
-      overlay={<Tooltip id="products-edit-tooltip">Edit product</Tooltip>}
-    >
-      <a
-        className="btn btn-icon btn-light btn-hover-primary btn-sm mx-3"
-        onClick={() => openEditProductPage(row.id)}
+    <>
+      <OverlayTrigger
+        overlay={<Tooltip id="products-edit-tooltip">Edit product</Tooltip>}
       >
-        <span className="svg-icon svg-icon-md svg-icon-primary">
-          <SVG
-            src={toAbsoluteUrl("/media/svg/icons/Communication/Write.svg")}
-          />
-        </span>
-      </a>
-    </OverlayTrigger>
+        <a
+          className="btn btn-icon btn-light btn-hover-primary btn-sm mx-3"
+          onClick={() => openEditProductPage(row.id)}
+        >
+          <span className="svg-icon svg-icon-md svg-icon-primary">
+            <SVG
+              src={toAbsoluteUrl("/media/svg/icons/Communication/Write.svg")}
+            />
+          </span>
+        </a>
+      </OverlayTrigger>
 
-    <> </>
-    <OverlayTrigger
-      overlay={<Tooltip id="products-delete-tooltip">Delete product</Tooltip>}
-    >
-      <a
-        className="btn btn-icon btn-light btn-hover-danger btn-sm"
-        onClick={() => openDeleteProductDialog(row.id)}
+      <> </>
+      <OverlayTrigger
+        overlay={<Tooltip id="products-delete-tooltip">Delete product</Tooltip>}
       >
-        <span className="svg-icon svg-icon-md svg-icon-danger">
-          <SVG src={toAbsoluteUrl("/media/svg/icons/General/Trash.svg")} />
-        </span>
-      </a>
-    </OverlayTrigger>
-  </>
-);
+        <a
+          className="btn btn-icon btn-light btn-hover-danger btn-sm"
+          onClick={() => openDeleteProductDialog(row.id)}
+        >
+          <span className="svg-icon svg-icon-md svg-icon-danger">
+            <SVG src={toAbsoluteUrl("/media/svg/icons/General/Trash.svg")} />
+          </span>
+        </a>
+      </OverlayTrigger>
+    </>
+  );

@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Formik, Form } from 'formik';
 
 import PropertyTypeForm from './Forms/PropertyTypeForm';
 import UploadPhotos from './Forms/UploadPhotos';
 import PropertyDetailsForm from './Forms/PropertyDetailsForm';
-import PlanAddonsRedirect from './Forms/PlanAddonsRedirect';
+// import PlanAddons from './Forms/PlanAddons';
 
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import Stepper from '@material-ui/core/Stepper';
@@ -25,7 +25,6 @@ import propertyAddFormModel from './FormModel/propertyAddFormModel';
 import formInitialValues from './FormModel/formInitialValues';
 import { CircularProgress } from '@material-ui/core';
 import Divider from '@material-ui/core/Divider';
-
 import { useDispatch } from 'react-redux';
 import * as crudActions from '../../../../_redux/property/propertyActions';
 import { useHistory } from 'react-router-dom';
@@ -198,7 +197,7 @@ function getStepContent(step) {
     }
 }
 
-export default function PropertyAddPage() {
+export default function PropertyEditPage({ property }) {
     const classes = useStyles();
     const [activeStep, setActiveStep] = React.useState(0);
     const currentValidationSchema = validationSchema[activeStep];
@@ -208,9 +207,6 @@ export default function PropertyAddPage() {
     const dispatch = useDispatch();
 
     const history = useHistory();
-    // const handleNext = () => {
-    //     setActiveStep((prevActiveStep) => prevActiveStep + 1);
-    // };
 
     function handleBack() {
         setActiveStep(activeStep - 1);
@@ -226,19 +222,18 @@ export default function PropertyAddPage() {
 
     async function _submitForm(values, actions) {
         await _sleep(1000);
-        // console.log(JSON.stringify(values, null, 2));
+        // alert(JSON.stringify(values, null, 2));
 
-        dispatch(crudActions.createProperty(values));
+        dispatch(crudActions.updateProperty(values)).then(() =>
+            backToPropertyPage()
+        );
         actions.setSubmitting(false);
-
-        await _sleep(1000);
 
         setActiveStep(activeStep + 1);
     }
 
     function _handleSubmit(values, actions) {
         if (isLastStep) {
-            console.log(values);
             _submitForm(values, actions);
         } else {
             setActiveStep(activeStep + 1);
@@ -275,7 +270,7 @@ export default function PropertyAddPage() {
                     {activeStep === steps.length ? (
                         //replace with page to show success after form submitted
                         <div>
-                            <PlanAddonsRedirect />
+                            Property saved successfully!
                             <Button
                                 onClick={handleReset}
                                 className={classes.button}
@@ -285,7 +280,8 @@ export default function PropertyAddPage() {
                         </div>
                     ) : (
                         <Formik
-                            initialValues={formInitialValues}
+                            enableReinitialize={true}
+                            initialValues={property}
                             validationSchema={currentValidationSchema}
                             onSubmit={_handleSubmit}
                         >
@@ -319,12 +315,9 @@ export default function PropertyAddPage() {
                                                 className='next-btn'
                                             >
                                                 {isLastStep ? (
-                                                    <div className='row next-btn-text'>
-                                                        <div className='col-9'>
-                                                            Last Step
-                                                            <p className='text-small p-r-2'>
-                                                                Plan & Addons
-                                                            </p>
+                                                    <div className='custom-display-flex next-btn-text'>
+                                                        <div className='publish'>
+                                                            Publish
                                                         </div>
                                                         <div className='pt-4'>
                                                             {isSubmitting && (

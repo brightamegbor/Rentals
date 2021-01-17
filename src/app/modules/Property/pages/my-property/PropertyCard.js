@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { useEffect, useMemo } from "react";
 import {
     Card,
     CardBody,
@@ -8,10 +8,7 @@ import {
 import LocationCityOutlined from '@material-ui/icons/LocationCityOutlined';
 import { PropertyList } from "./property-list/PropertyList";
 import { usePropertyUIContext } from "./PropertyUIContext";
-
-import {
-    Link
-} from 'react-router-dom';
+import { useSubheader } from "../../../../../_metronic/layout";
 
 export function PropertyCard() {
 
@@ -22,8 +19,10 @@ export function PropertyCard() {
             queryParams: propertyUIContext.queryParams,
             setQueryParams: propertyUIContext.setQueryParams,
             newPropertyButtonClick: propertyUIContext.newPropertyButtonClick,
-            openDeletePropertysDialog: propertyUIContext.openDeletePropertiesDialog,
+            openDeletePropertiesDialog: propertyUIContext.openDeletePropertiesDialog,
             openEditPropertyPage: propertyUIContext.openEditPropertyPage,
+            openPropertyAddonsPage: propertyUIContext.openPropertyAddonsPage,
+            openPropertyDetailsPage: propertyUIContext.openPropertyDetailsPage,
             openUpdatePropertyStatusDialog:
                 propertyUIContext.openUpdatePropertyStatusDialog,
             openFetchPropertyDialog: propertyUIContext.openFetchPropertyDialog,
@@ -32,6 +31,12 @@ export function PropertyCard() {
 
     const _title = <h3 className="header-title"><LocationCityOutlined /> Listings</h3>;
 
+    const suhbeader = useSubheader();
+
+    useEffect(() => {
+
+        suhbeader.setTitle('Property');
+    }, [useSubheader]);
 
     return (
         <Card>

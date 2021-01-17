@@ -8,7 +8,6 @@ import paginationFactory, {
 } from "react-bootstrap-table2-paginator";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import * as actions from "../../../_redux/products/productsActions";
-import * as cActions from "../../../../Property/_redux/property/propertyActions";
 import * as uiHelpers from "../ProductsUIHelpers";
 import {
   getSelectRow,
@@ -48,7 +47,7 @@ export function ProductsTable() {
     productsUIProps.setIds([]);
     // server call by queryParams
     dispatch(actions.fetchProducts(productsUIProps.queryParams));
-    dispatch(cActions.fetchProperties());
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [productsUIProps.queryParams, dispatch]);
   // Table columns

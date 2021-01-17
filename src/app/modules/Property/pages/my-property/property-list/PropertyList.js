@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import * as actions from "../../../_redux/property/propertyActions";
 import * as uiHelpers from "../PropertyUIHelpers";
-import { Pagination } from "../../../../../../_metronic/_partials/controls";
+import { Card, Pagination } from "../../../../../../_metronic/_partials/controls";
 import { usePropertyUIContext } from "../PropertyUIContext";
 import { PropertyListCard } from "./PropertyListCard";
 import { PropertyListCardStatus } from "./PropertyListCardStatus";
@@ -20,6 +20,8 @@ export function PropertyList() {
             setQueryParams: propertyUIContext.setQueryParams,
             openEditPropertyPage: propertyUIContext.openEditPropertyPage,
             openDeletePropertyDialog: propertyUIContext.openDeletePropertyDialog,
+            openPropertyDetailsPage: propertyUIContext.openPropertyDetailsPage,
+            openPropertyAddonsPage: propertyUIContext.openPropertyAddonsPage,
 
         };
     }, [propertyUIContext]);
@@ -56,6 +58,7 @@ export function PropertyList() {
     //     sizePerPage: propertyUIProps.queryParams.pageSize,
     //     page: propertyUIProps.queryParams.pageNumber,
     // };
+
 
     return (
         <div>
@@ -112,9 +115,15 @@ export function PropertyList() {
                 {tab === "all" && (
                     <div>
                         {entities !== null && (
-                            <PropertyListCard
-                                data={entities}
-                            />
+                            <div>
+                                <PropertyListCard
+                                    data={entities}
+                                    openDeletePropertyDialog={propertyUIProps.openDeletePropertyDialog}
+                                    openEditPropertyPage={propertyUIProps.openEditPropertyPage}
+                                    openPropertyDetailsPage={propertyUIProps.openPropertyDetailsPage}
+                                />
+                                {entities.length === 0 && <div>No property added</div>}
+                            </div>
 
                         )}
 
@@ -123,11 +132,17 @@ export function PropertyList() {
                 {tab === "Active" && (
                     <div>
                         {entities !== null && (
-                            <PropertyListCardStatus
-                                propStatus='active'
-                                secStatus='active'
-                                data={entities}
-                            />
+                            <>
+                                <PropertyListCardStatus
+                                    propStatus='active'
+                                    secStatus='active'
+                                    data={entities}
+                                    openDeletePropertyDialog={propertyUIProps.openDeletePropertyDialog}
+                                    openEditPropertyPage={propertyUIProps.openEditPropertyPage}
+                                    openPropertyDetailsPage={propertyUIProps.openPropertyDetailsPage}
+                                />
+                                {entities.length === 0 && <div>No active property available</div>}
+                            </>
                         )}
                     </div>
 
@@ -135,11 +150,17 @@ export function PropertyList() {
                 {tab === "Pending" && (
                     <div>
                         {entities !== null && (
-                            <PropertyListCardStatus
-                                propStatus='pending'
-                                secStatus='pending'
-                                data={entities}
-                            />
+                            <>
+                                <PropertyListCardStatus
+                                    propStatus='pending'
+                                    secStatus='pending'
+                                    data={entities}
+                                    openDeletePropertyDialog={propertyUIProps.openDeletePropertyDialog}
+                                    openEditPropertyPage={propertyUIProps.openEditPropertyPage}
+                                    openPropertyDetailsPage={propertyUIProps.openPropertyDetailsPage}
+                                />
+                                {entities.length === 0 && <div>No pending property available</div>}
+                            </>
                         )}
                     </div>
 
@@ -147,11 +168,19 @@ export function PropertyList() {
                 {tab === "Disabled" && (
                     <div>
                         {entities !== null && (
-                            <PropertyListCardStatus
-                                propStatus='disabled'
-                                secStatus='disapproved'
-                                data={entities}
-                            />
+                            <>
+                                <PropertyListCardStatus
+                                    propStatus='disabled'
+                                    secStatus='disapproved'
+                                    data={entities}
+                                    openDeletePropertyDialog={propertyUIProps.openDeletePropertyDialog}
+                                    openEditPropertyPage={propertyUIProps.openEditPropertyPage}
+                                    openPropertyDetailsPage={propertyUIProps.openPropertyDetailsPage}
+                                    openPropertyAddonsPage={propertyUIProps.openPropertyAddonsPage}
+                                />
+                                {/* <a onClick={handleLog}>Show</a> */}
+                                {entities.length === 0 && <div>No property available</div>}
+                            </>
                         )}
                     </div>
 
